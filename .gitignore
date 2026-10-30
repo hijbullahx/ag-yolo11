@@ -1,0 +1,63 @@
+# LaTeX auxiliary and build files
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.dvi
+*.fdb_latexmk
+*.fls
+*.idx
+*.ilg
+*.ind
+*.lof
+*.log
+*.lot
+*.nav
+*.out
+*.run.xml
+*.snm
+*.synctex.gz
+*.synctex(busy)
+*.toc
+*.vrb
+*.upa
+*.upb
+
+# Backup and temporary files
+*~
+*.bak
+*.swp
+*.swo
+
+# Operating System files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Python / PyTorch / Deep Learning artifacts
+__pycache__/
+*.py[cod]
+*$py.class
+*.pt
+*.pth
+*.onnx
+runs/
+weights/
+wandb/
+.ipynb_checkpoints/
+*.egg-info/
+dist/
+build/
+venv/
+env/
+.env
+
+# Large archives (keep raw repository clean)
+*.zip
+*.tar.gz
+*.rar
+*.7z
+
+# IDE / Editor settings
+.vscode/
+.idea/
