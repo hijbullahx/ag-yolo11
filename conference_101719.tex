@@ -113,7 +113,7 @@ We built our dataset by combining images collected from several regional traffic
 \end{itemize}
 
 
-The class distribution of the dataset is summarized in Table I and Fig.~\ref{fig:dataset_stats}. The numbers show a strong class imbalance in the collected traffic data. Vehicles such as cars and rickshaws appear far more frequently, while classes like cycles are much less common. In fact, the number of car instances is nearly 88 times higher than that of cycles.The class distribution of the dataset is summarized in Table I. The numbers show a strong class imbalance in the collected traffic data. Vehicles such as cars and rickshaws appear far more frequently, while classes like cycles are much less common. In fact, the number of car instances is nearly 88 times higher than that of cycles.
+The class distribution of the dataset is summarized in Table I and Fig.~\ref{fig:dataset_stats}. The numbers show a strong class imbalance in the collected traffic data. Vehicles such as cars and rickshaws appear far more frequently, while classes like cycles are much less common. In fact, the number of car instances is nearly 88 times higher than that of cycles.
 
 \begin{table}[htbp]
 \caption{Distribution of Classes in the Finalized Dataset}
@@ -205,7 +205,7 @@ When fully trained across 50 epochs, both architectures demonstrated stable conv
 
 
 \begin{table}[htbp]
-\caption{Ablation Study - Overall Performance}
+\caption{Overall Performance Comparison}
 \centering
 \resizebox{\linewidth}{!}{%
 \begin{tabular}{|c|c|c|c|c|}
@@ -224,7 +224,7 @@ Experiment& YOLOv11m integrated with CBAM & 0.757 & 0.532 & $\sim$4.7 ms \\
 \end{table}
 
 
-Breaking down the 75.7\% overall performance by class (Table~\ref{tab:per_class_map}, Fig.~\ref{fig:ablation_study_map50}) reveals a massive contrast in how the attention mechanism handles structurally distinct vehicles versus minority classes heavily impacted by the dataset's long-tailed imbalance.
+Breaking down the 75.7\% overall performance by class (Table~\ref{tab:per_class_map}, Fig.~\ref{fig:per_class_ap_comparison}) reveals a massive contrast in how the attention mechanism handles structurally distinct vehicles versus minority classes heavily impacted by the dataset's long-tailed imbalance.
 
 \begin{table}[htbp]
 \caption{Per-Class Average Precision (mAP@0.50)}
@@ -258,7 +258,7 @@ Breaking down the 75.7\% overall performance by class (Table~\ref{tab:per_class_
 \centering
 \includegraphics[width=\linewidth]{Images/ablation_study_map50.png}
 \caption{Comparative study of per-class Average Precision (mAP@0.50). While our baseline model established strong initial metrics, the proposed YOLOv11m+CBAM architecture successfully extracted obscured features in heavily occluded minority classes, yielding significant accuracy boosts for Trucks (+1.5\%) and Mini-Trucks (+1.1\%).}
-\label{fig:ablation_study_map50}
+\label{fig:per_class_ap_comparison}
 \end{figure}
 
 The data confirms our hypothesis. For heavily represented classes like Cars, CNGs, and Rickshaws, the baseline model was already highly capable, pushing past 90\% accuracy. However, the standard convolutional layers failed on structurally distinct minority classes. By adding spatial and channel attention mechanisms, our second model provided massive accuracy boosts ($>1.0\%$) for Trucks, Mini-Trucks, and Cycles by mathematically forcing the network to parse heavy metallic textures.
