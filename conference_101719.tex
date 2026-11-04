@@ -113,7 +113,7 @@ We built our dataset by combining images collected from several regional traffic
 \end{itemize}
 
 
-The class distribution of the dataset is summarized in Table I. The numbers show a strong class imbalance in the collected traffic data. Vehicles such as cars and rickshaws appear far more frequently, while classes like cycles are much less common. In fact, the number of car instances is nearly 88 times higher than that of cycles.The class distribution of the dataset is summarized in Table I. The numbers show a strong class imbalance in the collected traffic data. Vehicles such as cars and rickshaws appear far more frequently, while classes like cycles are much less common. In fact, the number of car instances is nearly 88 times higher than that of cycles.
+The class distribution of the dataset is summarized in Table I and Fig.~\ref{fig:dataset_stats}. The numbers show a strong class imbalance in the collected traffic data. Vehicles such as cars and rickshaws appear far more frequently, while classes like cycles are much less common. In fact, the number of car instances is nearly 88 times higher than that of cycles.The class distribution of the dataset is summarized in Table I. The numbers show a strong class imbalance in the collected traffic data. Vehicles such as cars and rickshaws appear far more frequently, while classes like cycles are much less common. In fact, the number of car instances is nearly 88 times higher than that of cycles.
 
 \begin{table}[htbp]
 \caption{Distribution of Classes in the Finalized Dataset}
@@ -201,7 +201,7 @@ Baseline and modified models were trained with identical hyperparameters to ensu
 To evaluate the performance of our approach in dense traffic scenes, we carried out two experiments. First, a standard YOLOv11m model was trained from scratch on our custom dataset to establish a baseline for Bangladeshi traffic conditions. Although the baseline model performed reasonably well, we observed that it often struggled to separate bounding boxes when vehicles were very close to each other. To address this limitation, we then trained our modified YOLOv11m+CBAM model, which is designed to better handle occlusion in crowded traffic scenes.
 
 \subsection{Quantitative Performance}
-When fully trained across 50 epochs, both architectures demonstrated highly stable convergence. As shown in Table II, our initial baseline YOLOv11m achieved a strong 75.1\% mAP@50. However, the introduction of the attention mechanism in our second experiment successfully pushed the overall validation performance to 75.7\% mAP@50.
+When fully trained across 50 epochs, both architectures demonstrated highly stable convergence (Fig.~\ref{fig:training_curve}). As shown in Table II, our initial baseline YOLOv11m achieved a strong 75.1\% mAP@50. However, the introduction of the attention mechanism in our second experiment successfully pushed the overall validation performance to 75.7\% mAP@50.
 
 \begin{figure}[htbp]
 \centering
@@ -231,7 +231,7 @@ Experiment& YOLOv11m integrated with CBAM & 0.757 & 0.532 & $\sim$4.7 ms \\
 \end{table}
 
 
-Breaking down the 75.7\% overall performance by class reveals a massive contrast in how the attention mechanism handles structurally distinct vehicles versus minority classes heavily impacted by the dataset's long-tailed imbalance.
+Breaking down the 75.7\% overall performance by class (Table~\ref{tab:per_class_map}, Fig.~\ref{fig:ablation_study_map50}) reveals a massive contrast in how the attention mechanism handles structurally distinct vehicles versus minority classes heavily impacted by the dataset's long-tailed imbalance.
 
 \begin{table}[htbp]
 \caption{Per-Class Average Precision (mAP@0.50)}
