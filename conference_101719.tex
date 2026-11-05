@@ -164,7 +164,7 @@ Since the dataset contains a strong class imbalance, training the model with the
 
 \subsection{Hardware and Configuration}
 
-Baseline and modified models were trained with identical hyperparameters to ensure consistent evaluation and compared under the same setup for fairness. The models were trained in a cloud environment using an NVIDIA Tesla T4 GPU with 16GB VRAM. 
+Baseline and modified models were trained with identical hyperparameters to ensure consistent evaluation and compared under the same setup for fairness, as summarized in Table~\ref{tab:param}. The models were trained in a cloud environment using dual NVIDIA Tesla T4 GPUs with 16GB VRAM each. 
 \begin{table}[h]
 \centering
 \caption{Training Parameter Settings}
@@ -202,7 +202,7 @@ The detection performance of the models is evaluated using standard Mean Average
 To evaluate the performance of our approach in dense traffic scenes, we carried out two experiments. First, a standard YOLOv11m model was trained from scratch on our custom dataset to establish a baseline for Bangladeshi traffic conditions. Although the baseline model performed reasonably well, we observed that it often struggled to separate bounding boxes when vehicles were very close to each other. To address this limitation, we then trained our modified YOLOv11m+CBAM model, which is designed to better handle occlusion in crowded traffic scenes.
 
 \subsection{Quantitative Performance}
-When fully trained across 50 epochs, both architectures demonstrated stable convergence. As shown in Table II, our initial baseline YOLOv11m achieved a strong 75.1\% mAP@50. However, the introduction of the attention mechanism in our second experiment successfully pushed the overall validation performance to 75.7\% mAP@50.
+When fully trained across 50 epochs, both architectures demonstrated stable convergence. As shown in Table~\ref{tab:ablation_overall}, our initial baseline YOLOv11m achieved a strong 75.1\% mAP@50. However, the introduction of the attention mechanism in our second experiment successfully pushed the overall validation performance to 75.7\% mAP@50.
 
 
 \begin{table}[htbp]
